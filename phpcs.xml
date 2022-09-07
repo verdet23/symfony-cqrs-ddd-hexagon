@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="vendor-bin/phpcs/vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
+    <config name="installed_paths" value="vendor-bin/phpcs/vendor/escapestudios/symfony2-coding-standard"/>
+
+    <arg name="basepath" value="."/>
+    <arg name="cache" value=".phpcs-cache"/>
+    <arg name="colors"/>
+    <arg name="extensions" value="php"/>
+
+    <rule ref="Symfony">
+        <exclude name="Symfony.Commenting.License.Warning"/>
+        <exclude name="Symfony.Commenting.FunctionComment.Missing"/>
+        <exclude name="Symfony.Commenting.ClassComment.Missing"/>
+        <exclude name="Symfony.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Symfony.Commenting.FunctionComment.MissingReturn"/>
+        <exclude name="Symfony.Commenting.FunctionComment.ParamNameNoMatch"/>
+        <exclude name="Symfony.NamingConventions.ValidClassName.InvalidInterfaceName"/>
+    </rule>
+
+    <file>bin/</file>
+    <file>config/</file>
+    <file>public/</file>
+    <file>src/</file>
+    <file>tests/</file>
+
+</ruleset>

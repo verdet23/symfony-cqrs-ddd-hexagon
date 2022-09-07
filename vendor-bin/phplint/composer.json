@@ -1,0 +1,6 @@
+{
+    "require": {
+        "php": ">=8.1",
+        "overtrue/phplint": "^5.3"
+    }
+}

@@ -1,0 +1,14 @@
+parameters:
+	level: 8
+	paths:
+		- tests
+	symfony:
+	    containerXmlPath: var/cache/test/App_KernelTestDebugContainer.xml
+includes:
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-doctrine/extension.neon
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-doctrine/rules.neon
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/extension.neon
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-phpunit/rules.neon
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-symfony/extension.neon
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-symfony/rules.neon
+	- vendor-bin/phpstan/vendor/phpstan/phpstan-beberlei-assert/extension.neon

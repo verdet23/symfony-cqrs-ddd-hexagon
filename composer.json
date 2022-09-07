@@ -1,0 +1,115 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=8.1",
+        "ext-ctype": "*",
+        "ext-iconv": "*",
+        "beberlei/assert": "^3.3",
+        "doctrine/doctrine-bundle": "^2.7",
+        "doctrine/doctrine-migrations-bundle": "^3.2",
+        "doctrine/orm": "^2.13",
+        "lexik/jwt-authentication-bundle": "^2.16",
+        "symfony/console": "6.1.*",
+        "symfony/dotenv": "6.1.*",
+        "symfony/flex": "^2",
+        "symfony/framework-bundle": "6.1.*",
+        "symfony/messenger": "6.1.*",
+        "symfony/proxy-manager-bridge": "6.1.*",
+        "symfony/runtime": "6.1.*",
+        "symfony/security-bundle": "6.1.*",
+        "symfony/uid": "6.1.*",
+        "symfony/yaml": "6.1.*"
+    },
+    "require-dev": {
+        "bamarni/composer-bin-plugin": "^1.8",
+        "roave/security-advisories": "dev-latest"
+    },
+    "config": {
+        "allow-plugins": {
+            "composer/package-versions-deprecated": true,
+            "symfony/flex": true,
+            "symfony/runtime": true,
+            "bamarni/composer-bin-plugin": true
+        },
+        "optimize-autoloader": true,
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+        "symfony/polyfill-ctype": "*",
+        "symfony/polyfill-iconv": "*",
+        "symfony/polyfill-php72": "*",
+        "symfony/polyfill-php73": "*",
+        "symfony/polyfill-php74": "*",
+        "symfony/polyfill-php80": "*",
+        "symfony/polyfill-php81": "*"
+    },
+    "scripts": {
+        "auto-scripts": {
+            "cache:clear": "symfony-cmd",
+            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ],
+        "system:checkers:install": [
+            "composer bin all update"
+        ],
+        "system:checkers:phpstan": [
+            "vendor/bin/phpstan"
+        ],
+        "system:checkers:phpstan:tests": [
+            "vendor/bin/phpstan analyze -c phpstan.test.neon"
+        ],
+        "system:checkers:phplint": [
+            "vendor/bin/phplint"
+        ],
+        "system:checkers:phpcpd": [
+            "vendor/bin/phpcpd src/ tests/"
+        ],
+        "system:checkers:phpcs": [
+            "vendor/bin/phpcs -p -s"
+        ],
+        "system:checkers:php-cs-fixer": [
+            "vendor/bin/php-cs-fixer fix --dry-run --verbose"
+        ],
+        "system:checkers:all": [
+            "@system:checkers:phpstan",
+            "@system:checkers:phpstan:tests",
+            "@system:checkers:phplint",
+            "@system:checkers:phpcpd",
+            "@system:checkers:phpcs",
+            "@system:checkers:php-cs-fixer"
+        ]
+    },
+    "scripts-descriptions": {
+        "system:checkers:install": "Install checkers"
+    },
+    "conflict": {
+        "symfony/symfony": "*"
+    },
+    "extra": {
+        "symfony": {
+            "allow-contrib": false,
+            "require": "6.1.*"
+        }
+    }
+}
