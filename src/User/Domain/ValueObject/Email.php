@@ -13,7 +13,6 @@ final class Email extends AbstractString
     {
         Assert::lazy()->tryAll()
             ->that($this->value)->email()
-            ->that($this->value)->maxLength(64)
             ->verifyNow();
     }
 }

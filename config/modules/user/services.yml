@@ -1,0 +1,32 @@
+services:
+    app.user.repository:
+        class: App\User\Infrastructure\Repository\Users
+        arguments:
+            - '@doctrine.orm.entity_manager'
+    
+    app.user.security.hasher:
+        class: App\User\Infrastructure\Security\UserPasswordHasher
+        arguments:
+            - '@security.password_hasher_factory'
+
+    app.user.specification:
+        class: App\User\Domain\UserSpecification
+        arguments:
+            - '@app.user.repository'
+                
+    app.user.user_factory:
+        class: App\User\Infrastructure\UserFactory
+        arguments:
+            - '@app.user.repository'
+            - '@app.user.specification'
+            - '@app.user.security.hasher'
+            - '@app.user.user.query.projector'
+        
+    app.user.user.query.factory:
+        class: App\User\Infrastructure\Query\UserViewFactory
+        
+    app.user.user.query.projector:
+        class: App\User\Infrastructure\Query\UserViewProjector
+        arguments:
+            - '@app.user.user.query.factory'
+            - '@app.user.repository'

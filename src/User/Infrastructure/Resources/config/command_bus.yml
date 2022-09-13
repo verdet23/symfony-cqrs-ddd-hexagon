@@ -1,0 +1,5 @@
+services:
+    app.user.command_bus.handler.sign_up:
+        class: App\User\Application\Command\SignUp\Handler
+        arguments:
+            - ''

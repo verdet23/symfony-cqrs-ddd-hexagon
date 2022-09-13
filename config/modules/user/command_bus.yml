@@ -1,0 +1,7 @@
+services:
+    app.user.command_bus.sign_up.handler:
+        class: App\User\Application\Command\SignUp\Handler
+        arguments:
+            - '@app.user.user_factory'
+        tags:
+            - { name: messenger.message_handler, bus: command.bus }

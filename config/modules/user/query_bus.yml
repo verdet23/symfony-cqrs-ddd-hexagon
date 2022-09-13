@@ -1,0 +1,7 @@
+services:
+    app.user.query_bus.by_uuid.handler:
+        class: App\User\Application\Query\ByUuid\Handler
+        arguments:
+            - '@app.user.repository'
+        tags:
+            - { name: messenger.message_handler, bus: query.bus }

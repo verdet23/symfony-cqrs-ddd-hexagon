@@ -4,6 +4,7 @@ parameters:
 		- tests
 	symfony:
 	    containerXmlPath: var/cache/test/App_KernelTestDebugContainer.xml
+	tmpDir: var/phpstan
 includes:
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-doctrine/extension.neon
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-doctrine/rules.neon

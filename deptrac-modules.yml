@@ -1,0 +1,23 @@
+parameters:
+    paths:
+        - ./src
+#    exclude_files:
+#        - '#.*\/src\/.*\/Infrastructure\/Adapter\/.*#'
+    layers:
+        - name: Shared
+          collectors:
+              - type: directory
+                regex: /src/Shared/.*
+        - name: User
+          collectors:
+              - type: directory
+                regex: /src/User/.*
+        - name: Blog
+          collectors:
+              - type: directory
+                regex: /src/Blog/.*
+    ruleset:
+        User:
+            - Shared
+        Blog:
+            - Shared

@@ -4,6 +4,7 @@ parameters:
 		- src
 	symfony:
 	    containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml
+	tmpDir: var/phpstan
 includes:
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-doctrine/extension.neon
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-doctrine/rules.neon

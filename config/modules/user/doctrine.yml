@@ -1,0 +1,17 @@
+doctrine:
+    dbal:
+        types:
+            user.display_name: App\User\Infrastructure\DBAL\Types\DisplayNameType
+            user.email: App\User\Infrastructure\DBAL\Types\EmailType
+            user.hashed_password: App\User\Infrastructure\DBAL\Types\HashedPasswordType
+            user.username: App\User\Infrastructure\DBAL\Types\UsernameType
+            user.uuid: App\User\Infrastructure\DBAL\Types\UuidType
+    orm:            
+        mappings:
+            User:
+                is_bundle: false
+                type: xml
+                dir: '%kernel.project_dir%/config/modules/user/orm/'
+                prefix: 'App\User'
+                alias: User
+                    

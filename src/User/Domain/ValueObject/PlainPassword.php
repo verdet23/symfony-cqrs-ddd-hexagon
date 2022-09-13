@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace App\User\Domain\ValueObject;
 
 use App\Shared\Domain\ValueObject\AbstractString;
-use Assert\Assertion;
+use Assert\Assert;
 
-class DisplayedName extends AbstractString
+final class PlainPassword extends AbstractString
 {
     protected function validate(): void
     {
-        Assertion::maxLength($this->value, 128);
+        Assert::lazy()->tryAll()
+            ->that($this->value)->minLength(4)
+            ->verifyNow();
     }
 }
