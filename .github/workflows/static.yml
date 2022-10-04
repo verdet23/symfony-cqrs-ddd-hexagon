@@ -58,7 +58,7 @@ jobs:
       - name: Install phpstan
         run: composer bin phpcs update --prefer-dist --no-progress
       - name: Run PHPCS
-        run: phpcs -p --report=checkstyle | cs2pr
+        run: phpcs --report=checkstyle | cs2pr
   php-cs-fixer:
     runs-on: ubuntu-latest
     steps:

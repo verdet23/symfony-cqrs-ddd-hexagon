@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\User\Domain\Specification;
 
 use App\Shared\Domain\Exception\SpecificationErrorException;
-use App\Shared\Domain\Specification\AbstractLazySpecification;
 use App\Shared\Domain\Specification\AbstractSpecification;
 use App\User\Domain\Repository\CheckExist;
 use App\User\Domain\ValueObject\Email;
