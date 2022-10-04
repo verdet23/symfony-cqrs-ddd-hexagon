@@ -1,6 +1,8 @@
 {
+    "name": "verdet23/symfony-cqrs-ddd-hexagon",
+    "description": "My POV for cqrs ddd hexagon impl",
     "type": "project",
-    "license": "proprietary",
+    "license": "MIT",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
