@@ -53,6 +53,8 @@ jobs:
         run: composer install --prefer-dist --no-progress
       - name: Prepare test env
         run: make prepare-tests
+        env:
+          DATABASE_URL: postgres://postgres:postgres@127.0.0.1:${{ job.services.postgres.ports[5432] }}/postgres?charset=UTF-8
       - name: Enable matcher
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
       - name: Run test suite
