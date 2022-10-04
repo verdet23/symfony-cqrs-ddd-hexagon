@@ -51,6 +51,8 @@ jobs:
             ${{ runner.os }}-php-
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
+      - name: Prepare test env
+        run: make prepare-tests
       - name: Enable matcher
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
       - name: Run test suite
