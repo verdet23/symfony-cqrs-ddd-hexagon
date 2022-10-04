@@ -48,7 +48,7 @@ final class UserSpecification extends AbstractSpecification
         }
     }
 
-    public function lazy(): AbstractLazySpecification
+    public function lazy(): UserLazySpecification
     {
         return new UserLazySpecification($this);
     }

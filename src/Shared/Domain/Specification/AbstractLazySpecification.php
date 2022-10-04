@@ -27,7 +27,7 @@ abstract class AbstractLazySpecification
         $this->specification = $specification;
     }
 
-    public function __call(string $method, array $args): self
+    public function __call(string $method, array $args): static
     {
         if (false === $this->alwaysTryAll
             && false === $this->thisChainTryAll
@@ -56,7 +56,7 @@ abstract class AbstractLazySpecification
         return $this;
     }
 
-    public function that(mixed $value): self
+    public function that(mixed $value): static
     {
         $this->currentChainFailed = false;
         $this->thisChainTryAll = false;
@@ -67,7 +67,7 @@ abstract class AbstractLazySpecification
         return $this;
     }
 
-    public function tryAll(): self
+    public function tryAll(): static
     {
         if (!$this->currentChain) {
             $this->alwaysTryAll = true;
