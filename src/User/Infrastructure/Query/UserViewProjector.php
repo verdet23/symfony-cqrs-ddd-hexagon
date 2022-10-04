@@ -27,22 +27,22 @@ class UserViewProjector implements UserProjector
     {
         $userView = $this->factory->create($event->uuid, $event->email, $event->username, $event->displayName, $event->hashedPassword, $event->createdAt);
 
-        $this->repository->add($userView);
+        $this->repository->save($userView);
     }
 
     public function applyEmailWasChanged(EmailWasChanged $event): void
     {
-        $userView = $this->repository->byUuid($event->uuid);
+        $userView = $this->repository->oneByUuid($event->uuid);
         $userView->setEmail($event->email);
 
-        $this->repository->add($userView);
+        $this->repository->save($userView);
     }
 
     public function applyPasswordWasChanged(PasswordWasChanged $event): void
     {
-        $userView = $this->repository->byUuid($event->uuid);
+        $userView = $this->repository->oneByUuid($event->uuid);
         $userView->setHashedPassword($event->hashedPassword);
 
-        $this->repository->add($userView);
+        $this->repository->save($userView);
     }
 }

@@ -1,2 +1,7 @@
 api_login_check:
     path: /api/login_check
+
+app_user:
+    resource: 'modules/user/routes.yml'
+    prefix: api/user
+    trailing_slash_on_root: false

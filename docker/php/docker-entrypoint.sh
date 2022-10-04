@@ -49,6 +49,7 @@ if [ "$1" = 'php-fpm' ] || [ "$1" = 'php' ] || [ "$1" = 'bin/console' ]; then
 fi
 
 chown -R 1000:1000 /tmp/.composer
+chown -R 1000:1000 /tmp/phpstan
 chown -R 1000:1000 var
 
 exec docker-php-entrypoint "$@"

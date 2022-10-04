@@ -1,0 +1,4 @@
+app.user.sign_up:
+    path: /sign_up
+    methods: POST
+    defaults: { _controller: app.user.controller.sign_up }

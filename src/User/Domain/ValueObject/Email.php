@@ -12,7 +12,7 @@ final class Email extends AbstractString
     protected function validate(): void
     {
         Assert::lazy()->tryAll()
-            ->that($this->value)->email()
+            ->that($this->value, 'email')->email()
             ->verifyNow();
     }
 }

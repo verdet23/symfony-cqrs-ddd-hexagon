@@ -1,0 +1,7 @@
+services:
+    app.user.fixtures:
+        class: App\User\Infrastructure\Fixtures\User
+        arguments:
+            - '@app.command.bus'
+        tags:
+            - { name: sylius_fixtures.fixture }

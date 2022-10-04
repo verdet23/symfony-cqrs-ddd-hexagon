@@ -35,14 +35,14 @@ prepare-tests: ## Prepare test env - clear cache, reset DB
 	bin/console doctrine:database:drop --force --env=test || true
 	bin/console doctrine:database:create --env=test
 	bin/console doctrine:migrations:migrate -n --env=test
-	#bin/console doctrine:fixtures:load -n --env=test
+	bin/console sylius:fixtures:load -n --env=test
 
 prepare-dev: ## Prepare dev env - clear cache, reset DB
 	bin/console cache:clear --env=dev
 	bin/console doctrine:database:drop --force --env=dev || true
 	bin/console doctrine:database:create --env=dev
 	bin/console doctrine:migrations:migrate -n --env=dev
-	#bin/console doctrine:fixtures:load -n --env=dev
+	bin/console sylius:fixtures:load -n --env=dev
 
 
 tests: prepare-tests ## Run PHPUnit all tests with coverage

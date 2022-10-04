@@ -14,9 +14,9 @@ class Username extends AbstractString
     protected function validate(): void
     {
         Assert::lazy()->tryAll()
-            ->that($this->value)->minLength(4)
-            ->that($this->value)->maxLength(64)
-            ->that($this->value)->regex(self::REGEX)
+            ->that($this->value)->minLength(4, null, 'username')
+            ->that($this->value)->maxLength(64, null, 'username')
+            ->that($this->value)->regex(self::REGEX, null, 'username')
             ->verifyNow();
     }
 }

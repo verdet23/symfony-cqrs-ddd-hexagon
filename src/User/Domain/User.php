@@ -8,6 +8,7 @@ use App\User\Domain\Event\EmailWasChanged;
 use App\User\Domain\Event\PasswordWasChanged;
 use App\User\Domain\Event\UserWasCreated;
 use App\User\Domain\Security\UserPasswordHasher;
+use App\User\Domain\Specification\UserSpecification;
 use App\User\Domain\ValueObject\DisplayName;
 use App\User\Domain\ValueObject\Email;
 use App\User\Domain\ValueObject\HashedPassword;

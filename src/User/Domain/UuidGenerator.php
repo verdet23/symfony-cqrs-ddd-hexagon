@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\User\Domain;
 
-use App\User\Domain\Repository\UserRepository;
+use App\User\Domain\Repository\CheckExist;
 use App\User\Domain\ValueObject\Uuid;
 use RuntimeException;
 
@@ -12,9 +12,9 @@ final class UuidGenerator
 {
     private const MAX_ATTEMPTS = 5;
 
-    private UserRepository $repository;
+    private CheckExist $repository;
 
-    public function __construct(UserRepository $repository)
+    public function __construct(CheckExist $repository)
     {
         $this->repository = $repository;
     }

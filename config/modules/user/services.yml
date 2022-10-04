@@ -1,6 +1,6 @@
 services:
     app.user.repository:
-        class: App\User\Infrastructure\Repository\Users
+        class: App\User\Infrastructure\Query\Postgre\Users
         arguments:
             - '@doctrine.orm.entity_manager'
     
@@ -10,7 +10,7 @@ services:
             - '@security.password_hasher_factory'
 
     app.user.specification:
-        class: App\User\Domain\UserSpecification
+        class: App\User\Domain\Specification\UserSpecification
         arguments:
             - '@app.user.repository'
                 
@@ -29,4 +29,9 @@ services:
         class: App\User\Infrastructure\Query\UserViewProjector
         arguments:
             - '@app.user.user.query.factory'
+            - '@app.user.repository'
+    
+    app.user.uuid_generator:
+        class: App\User\Domain\UuidGenerator
+        arguments:
             - '@app.user.repository'

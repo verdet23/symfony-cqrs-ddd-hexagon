@@ -1,0 +1,6 @@
+services:
+    app.user.controller.sign_up:
+        class: App\User\UI\Http\Rest\SignUp
+        arguments:
+            - '@app.command.bus'
+            - '@app.user.uuid_generator'

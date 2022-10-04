@@ -1,0 +1,14 @@
+parameters:
+	ignoreErrors:
+	    - # magic calls
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\Specification\\\\LazySpecification\\:\\:__call\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/Specification/AbstractLazySpecification.php
+	    - # magic calls
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\Specification\\\\SpecificationChain\\:\\:__call\\(\\) has parameter \\$args with no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/Specification/SpecificationChain.php
+	    - # already checked with reflection
+	        message: "#^Parameter \\#1 \\$callback of function call_user_func_array expects callable\\(\\)\\: mixed, array\\{App\\\\Shared\\\\Domain\\\\Specification\\\\AbstractSpecification, string\\} given\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/Specification/SpecificationChain.php

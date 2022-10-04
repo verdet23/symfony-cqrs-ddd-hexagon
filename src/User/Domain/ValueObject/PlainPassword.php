@@ -12,7 +12,7 @@ final class PlainPassword extends AbstractString
     protected function validate(): void
     {
         Assert::lazy()->tryAll()
-            ->that($this->value)->minLength(4)
+            ->that($this->value)->minLength(4, null, 'password')
             ->verifyNow();
     }
 }

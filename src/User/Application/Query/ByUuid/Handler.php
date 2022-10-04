@@ -19,6 +19,6 @@ class Handler implements QueryHandler
 
     public function __invoke(Query $query): UserView
     {
-        return $this->repository->byUuid($query->uuid);
+        return $this->repository->oneByUuid($query->uuid);
     }
 }

@@ -8,12 +8,14 @@ use JsonSerializable;
 
 abstract class AbstractInt implements JsonSerializable
 {
-    private int $value;
+    protected int $value;
 
     public static function fromInt(int $value): static
     {
         $item = new static();
         $item->value = $value;
+
+        $item->validate();
 
         return $item;
     }
@@ -26,6 +28,10 @@ abstract class AbstractInt implements JsonSerializable
     public function jsonSerialize(): int
     {
         return $this->value;
+    }
+
+    protected function validate(): void
+    {
     }
 
     final private function __construct()

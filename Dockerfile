@@ -112,7 +112,7 @@ RUN rm -Rf docker/
 
 RUN set -eux; \
 	mkdir -p var/cache var/log; \
-    mkdir -p /tmp/.composer;
+    mkdir -p /tmp/.composer /tmp/phpstan;
 #    if [ -f composer.json ]; then \
 #		composer dump-autoload --classmap-authoritative --no-dev; \
 #		composer dump-env prod; \

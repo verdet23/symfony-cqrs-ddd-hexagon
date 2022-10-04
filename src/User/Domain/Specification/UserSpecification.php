@@ -1,0 +1,55 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\User\Domain\Specification;
+
+use App\Shared\Domain\Exception\SpecificationErrorException;
+use App\Shared\Domain\Specification\AbstractLazySpecification;
+use App\Shared\Domain\Specification\AbstractSpecification;
+use App\User\Domain\Repository\CheckExist;
+use App\User\Domain\ValueObject\Email;
+use App\User\Domain\ValueObject\Username;
+use App\User\Domain\ValueObject\Uuid;
+
+final class UserSpecification extends AbstractSpecification
+{
+    private CheckExist $repository;
+
+    public function __construct(CheckExist $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    public function isSatisfiedEmail(Email $email): void
+    {
+        $exist = $this->repository->existsEmail($email);
+
+        if ($exist) {
+            throw SpecificationErrorException::create(sprintf('Email %s already exist', $email->toString()), 'email', $email->toString());
+        }
+    }
+
+    public function isSatisfiedUuid(Uuid $uuid): void
+    {
+        $exist = $this->repository->existsUuid($uuid);
+
+        if ($exist) {
+            throw SpecificationErrorException::create(sprintf('Uuid %s already exist', $uuid->toString()), 'uuid', $uuid->toString());
+        }
+    }
+
+    public function isSatisfiedUsername(Username $username): void
+    {
+        $exist = $this->repository->existsUsername($username);
+
+        if ($exist) {
+            throw SpecificationErrorException::create(sprintf('Username %s already exist', $username->toString()), 'username', $username->toString());
+        }
+    }
+
+    public function lazy(): AbstractLazySpecification
+    {
+        return new UserLazySpecification($this);
+    }
+}

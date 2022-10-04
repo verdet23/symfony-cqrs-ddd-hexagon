@@ -11,13 +11,11 @@ use App\User\Domain\ValueObject\Uuid;
 
 interface UserRepository
 {
-    public function add(UserView $user): void;
+    public function save(UserView $user): void;
 
-    public function byUuid(Uuid $uuid): UserView;
+    public function oneByUuid(Uuid $uuid): UserView;
 
-    public function existsEmail(Email $email): bool;
+    public function oneByEmail(Email $email): UserView;
 
-    public function existsUsername(Username $username): bool;
-
-    public function existsUuid(Uuid $uuid): bool;
+    public function oneByUsername(Username $username): UserView;
 }

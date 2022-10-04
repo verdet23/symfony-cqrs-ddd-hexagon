@@ -6,10 +6,10 @@ namespace App\User\Infrastructure;
 
 use App\User\Domain\Repository\UserRepository;
 use App\User\Domain\Security\UserPasswordHasher;
+use App\User\Domain\Specification\UserSpecification;
 use App\User\Domain\User;
 use App\User\Domain\UserFactory as Factory;
 use App\User\Domain\UserProjector;
-use App\User\Domain\UserSpecification;
 use App\User\Domain\ValueObject\DisplayName;
 use App\User\Domain\ValueObject\Email;
 use App\User\Domain\ValueObject\PlainPassword;
@@ -52,7 +52,7 @@ class UserFactory implements Factory
 
     public function createByUuid(Uuid $uuid): User
     {
-        $userView = $this->repository->byUuid($uuid);
+        $userView = $this->repository->oneByUuid($uuid);
 
         return new User(
             $userView->uuid(),

@@ -11,7 +11,7 @@ use Doctrine\DBAL\Types\StringType;
 
 abstract class AbstractString extends StringType
 {
-    public function convertToDatabaseValue($value, AbstractPlatform $platform): mixed
+    public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
         if ($value instanceof VOString) {
             return $value->toString();
@@ -32,7 +32,7 @@ abstract class AbstractString extends StringType
         }
     }
 
-    public function convertToPHPValue($value, AbstractPlatform $platform): mixed
+    public function convertToPHPValue($value, AbstractPlatform $platform): ?VOString
     {
         if ($value instanceof VOString || null === $value) {
             return $value;
