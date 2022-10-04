@@ -13,5 +13,4 @@ use App\Shared\Domain\Specification\AbstractLazySpecification;
  */
 class UserLazySpecification extends AbstractLazySpecification
 {
-
 }
