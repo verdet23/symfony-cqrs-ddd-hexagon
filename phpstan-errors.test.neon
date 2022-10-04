@@ -1,0 +1,11 @@
+parameters:
+	ignoreErrors:
+		- # https://github.com/phpstan/phpstan-phpunit/issues/87
+			message: "#^Call to an undefined method App\\\\Shared\\\\Domain\\\\Specification\\\\SpecificationChain\\:\\:valueCheck\\(\\)\\.$#"
+			count: 2
+			path: tests/Unit/Shared/Domain/Specification/SpecificationChainTest.php
+
+		- # https://github.com/phpstan/phpstan-phpunit/issues/87
+			message: "#^Trying to mock an undefined method valueCheck\\(\\) on class App\\\\Shared\\\\Domain\\\\Specification\\\\AbstractSpecification\\.$#"
+			count: 1
+			path: tests/Unit/Shared/Domain/Specification/SpecificationChainTest.php

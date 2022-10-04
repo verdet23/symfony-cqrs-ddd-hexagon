@@ -106,6 +106,9 @@ class UsersTest extends KernelTestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * @return list<array{0: Email, 1: bool}>
+     */
     public function dataProviderExistsEmail(): array
     {
         return [
@@ -130,6 +133,9 @@ class UsersTest extends KernelTestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * @return list<array{0: Username, 1: bool}>
+     */
     public function dataProviderExistsUsername(): array
     {
         return [
@@ -154,6 +160,9 @@ class UsersTest extends KernelTestCase
         $this->assertSame($expected, $result);
     }
 
+    /**
+     * @return list<array{0: Uuid, 1: bool}>
+     */
     public function dataProviderExistsUuid(): array
     {
         return [

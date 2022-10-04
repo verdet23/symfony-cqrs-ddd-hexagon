@@ -13,3 +13,4 @@ includes:
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-symfony/extension.neon
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-symfony/rules.neon
 	- vendor-bin/phpstan/vendor/phpstan/phpstan-beberlei-assert/extension.neon
+	- phpstan-errors.test.neon
