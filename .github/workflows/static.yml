@@ -86,6 +86,31 @@ jobs:
         run: composer install --prefer-dist --no-progress
       - name: Run PHP CS Fixer
         run: php-cs-fixer fix --dry-run --format=checkstyle | cs2pr
-#  deptrack:
+  deptrack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+      - name: Get composer cache directory
+        id: composer-cache
+        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+      - name: Cache composer dependencies
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.composer-cache.outputs.dir }}
+          key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.json') }}
+          restore-keys: ${{ runner.os }}-composer-
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+      - name: Install deptrack
+        run: composer bin deptrack update --prefer-dist --no-progress
+      - name: Run deptrack modules
+        run: vendor/bin/deptrac analyse --config-file=deptrac-modules.yml --formatter=github-actions
+      - name: Run deptrack layers
+        run: vendor/bin/deptrac analyse --config-file=deptrac-layers.yml --formatter=github-actions
 #  phpcpd:
 #  phplint:
