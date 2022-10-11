@@ -52,9 +52,11 @@ final class User
 
     public function signUp(): void
     {
-        $this->specification->isSatisfiedUuid($this->uuid);
-        $this->specification->isSatisfiedEmail($this->email);
-        $this->specification->isSatisfiedUsername($this->username);
+        $this->specification->lazy()->tryAll()
+            ->that($this->uuid)->isSatisfiedUuid()
+            ->that($this->email)->isSatisfiedEmail()
+            ->that($this->username)->isSatisfiedUsername()
+            ->verifyNow();
 
         $event = UserWasCreated::create($this->uuid, $this->email, $this->username, $this->displayName, $this->hashedPassword, $this->createdAt);
 

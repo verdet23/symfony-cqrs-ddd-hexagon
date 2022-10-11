@@ -4,15 +4,8 @@ declare(strict_types=1);
 
 namespace App\User\Domain\ValueObject;
 
-use App\Shared\Domain\ValueObject\AbstractString;
-use Assert\Assert;
+use App\Shared\Domain\ValueObject\AbstractEmail;
 
-final class Email extends AbstractString
+final class Email extends AbstractEmail
 {
-    protected function validate(): void
-    {
-        Assert::lazy()->tryAll()
-            ->that($this->value, 'email')->email()
-            ->verifyNow();
-    }
 }

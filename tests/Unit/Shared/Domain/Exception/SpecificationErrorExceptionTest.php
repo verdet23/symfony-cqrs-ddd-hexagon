@@ -11,10 +11,11 @@ class SpecificationErrorExceptionTest extends TestCase
 {
     public function testCreate(): void
     {
-        $exception = SpecificationErrorException::create('Out of range', 'text');
+        $exception = SpecificationErrorException::create('Out of range', 12, 'text');
 
         $this->assertSame('Specification error "Out of range" at [text]', $exception->getMessage());
         $this->assertSame('text', $exception->propertyPath());
         $this->assertSame('Out of range', $exception->baseMessage());
+        $this->assertSame(12, $exception->value());
     }
 }

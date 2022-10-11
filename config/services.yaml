@@ -6,13 +6,14 @@
 parameters:
     
 imports:
+    - { resource: modules/shared.yml }
     - { resource: modules/user.yml }
 
 services:
     # default configuration for services in *this* file
     _defaults:
         autowire: false      # Automatically injects dependencies in your services.
-        autoconfigure: false # Automatically registers your services as commands, event subscribers, etc.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
         
     app.command.bus:
         alias: 'command.bus'

@@ -12,3 +12,31 @@ parameters:
 	        message: "#^Parameter \\#1 \\$callback of function call_user_func_array expects callable\\(\\)\\: mixed, array\\{App\\\\Shared\\\\Domain\\\\Specification\\\\AbstractSpecification, string\\} given\\.$#"
 	        count: 1
 	        path: src/Shared/Domain/Specification/SpecificationChain.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\ExceptionFormatter\\\\AssertionExceptionFormatter\\:\\:format\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/ExceptionFormatter/AssertionExceptionFormatter.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\ExceptionFormatter\\\\ExceptionFormatter\\:\\:format\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/ExceptionFormatter/ExceptionFormatter.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\ExceptionFormatter\\\\LazyAssertionExceptionFormatter\\:\\:format\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/ExceptionFormatter/LazyAssertionExceptionFormatter.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\ExceptionFormatter\\\\LazySpecificationErrorExceptionFormatter\\:\\:format\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/ExceptionFormatter/LazySpecificationErrorExceptionFormatter.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Domain\\\\ExceptionFormatter\\\\SpecificationErrorExceptionFormatter\\:\\:format\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Domain/ExceptionFormatter/SpecificationErrorExceptionFormatter.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Infrastructure\\\\UI\\\\Http\\\\Rest\\\\ExceptionListener\\:\\:getErrorMessage\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Infrastructure/UI/Http/Rest/ExceptionListener.php
+	    -
+	        message: "#^Method App\\\\Shared\\\\Infrastructure\\\\UI\\\\Http\\\\Rest\\\\ExceptionListener\\:\\:getWrappedMessage\\(\\) return type has no value type specified in iterable type array\\.$#"
+	        count: 1
+	        path: src/Shared/Infrastructure/UI/Http/Rest/ExceptionListener.php

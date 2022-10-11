@@ -17,9 +17,9 @@ class UserLazySpecificationTest extends KernelTestCase
     {
         $this->expectException(LazySpecificationErrorException::class);
         $this->expectExceptionMessage('The following 3 assertions failed:
-1) email: Specification error "Email swortzik@example.com already exist" at [email]
-2) uuid: Specification error "Uuid 2a503bf2-1fbd-4b64-99ad-2ac185a1eeb6 already exist" at [uuid]
-3) username: Specification error "Username swortzik already exist" at [username]');
+1) email: Specification error "Email already exist" at [email]
+2) uuid: Specification error "Uuid already exist" at [uuid]
+3) username: Specification error "Username already exist" at [username]');
 
         self::bootKernel();
 

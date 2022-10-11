@@ -19,7 +19,7 @@ final class SpecificationErrorException extends InvalidArgumentException
         parent::__construct($message);
     }
 
-    public static function create(string $message, string $path = null, mixed $value = null): self
+    public static function create(string $message, mixed $value, string $path = null): self
     {
         $errorMessage = $message;
 

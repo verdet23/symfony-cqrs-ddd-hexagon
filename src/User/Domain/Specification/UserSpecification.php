@@ -25,7 +25,7 @@ final class UserSpecification extends AbstractSpecification
         $exist = $this->repository->existsEmail($email);
 
         if ($exist) {
-            throw SpecificationErrorException::create(sprintf('Email %s already exist', $email->toString()), 'email', $email->toString());
+            throw SpecificationErrorException::create('Email already exist', $email->toString(), 'email');
         }
     }
 
@@ -34,7 +34,7 @@ final class UserSpecification extends AbstractSpecification
         $exist = $this->repository->existsUuid($uuid);
 
         if ($exist) {
-            throw SpecificationErrorException::create(sprintf('Uuid %s already exist', $uuid->toString()), 'uuid', $uuid->toString());
+            throw SpecificationErrorException::create('Uuid already exist', $uuid->toString(), 'uuid');
         }
     }
 
@@ -43,7 +43,7 @@ final class UserSpecification extends AbstractSpecification
         $exist = $this->repository->existsUsername($username);
 
         if ($exist) {
-            throw SpecificationErrorException::create(sprintf('Username %s already exist', $username->toString()), 'username', $username->toString());
+            throw SpecificationErrorException::create('Username already exist', $username->toString(), 'username');
         }
     }
 

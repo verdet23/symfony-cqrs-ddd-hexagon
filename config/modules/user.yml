@@ -1,5 +1,6 @@
 imports:
     - { resource: user/command_bus.yml }
+    - { resource: user/controller.yml }
     - { resource: user/doctrine.yml }
     - { resource: user/fixtures.yml }
     - { resource: user/query_bus.yml }

@@ -26,7 +26,7 @@ vendor: composer.json composer.lock ## Install vendors
 	composer bin all update
 
 lint: ## Lint yaml files and templates
-	bin/console lint:yaml config/
+	bin/console lint:yaml config/ --parse-tags
 	bin/console lint:twig templates/
 
 

@@ -4,3 +4,5 @@ services:
         arguments:
             - '@app.command.bus'
             - '@app.user.uuid_generator'
+        tags:
+            - controller.service_arguments

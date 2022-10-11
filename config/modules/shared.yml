@@ -1,0 +1,30 @@
+parameters:
+    exception_to_status:
+        App\Shared\Domain\Exception\NotFoundException: 404
+        App\Shared\Domain\Exception\LazySpecificationErrorException: 400
+        App\Shared\Domain\Exception\SpecificationErrorException: 400
+        Assert\LazyAssertionException: 400
+        Assert\InvalidArgumentException: 400
+
+services:
+    app.kernel_listener.json_body_parse:
+        class: App\Shared\Infrastructure\UI\Http\Rest\JsonBodyParserListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request }
+                
+    app.kernel_listener.exception_listener:
+        class: App\Shared\Infrastructure\UI\Http\Rest\ExceptionListener
+        arguments:
+            - '%kernel.environment%'
+            - '%exception_to_status%'
+            - !tagged_iterator app.formatter.exception_formatter
+        tags:
+            - { name: kernel.event_listener, event: kernel.exception }
+    
+    App\Shared\Domain\ExceptionFormatter\:
+        resource: '../../src/Shared/Domain/ExceptionFormatter/'
+    
+    _instanceof:
+        App\Shared\Domain\ExceptionFormatter\ExceptionFormatter:
+            tags:
+                - { name: app.formatter.exception_formatter }

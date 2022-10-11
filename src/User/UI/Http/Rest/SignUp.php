@@ -6,12 +6,13 @@ namespace App\User\UI\Http\Rest;
 
 use App\User\Application\Command\SignUp\Command;
 use App\User\Domain\UuidGenerator;
+use App\User\Domain\ValueObject\Username;
 use OpenApi\Attributes as OA;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Messenger\MessageBusInterface;
 
-class SignUp
+final class SignUp
 {
     private MessageBusInterface $commandBus;
 
@@ -31,14 +32,27 @@ class SignUp
         response: 400,
         description: 'Bad request'
     )]
-    #[OA\Parameter(
-        name: 'user',
-        in: 'body',
-        description: 'The field used to order rewards',
-        schema: new OA\Schema(type: 'object'),
-        required: true
-    )]
     #[OA\Tag(name: 'users')]
+    #[OA\RequestBody(
+        description: 'Create user',
+        required: true,
+        content: new OA\JsonContent(
+            properties: [
+                new OA\Property(property: 'email', type: 'string', maxLength: 320, example: 'jmilton@example.com'),
+                new OA\Property(
+                    property: 'username',
+                    type: 'string',
+                    maxLength: 64,
+                    minLength: 4,
+                    pattern: Username::REGEX,
+                    example: 'jmilton'
+                ),
+                new OA\Property(property: 'displayName', type: 'string', maxLength: 128, minLength: 4, example: 'John Milton'),
+                new OA\Property(property: 'password', type: 'string', minLength: 7, example: 'tG.+~U+I3.tt'),
+            ],
+            type: 'object'
+        )
+    )]
     public function __invoke(Request $request): JsonResponse
     {
         $command = new Command(

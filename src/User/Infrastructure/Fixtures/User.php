@@ -14,6 +14,7 @@ class User extends AbstractFixture
     public const USER_ONE_PASSWORD = '2ac185a1eeb6';
     public const USER_ONE_EMAIL = 'swortzik@example.com';
     public const USER_ONE_USERNAME = 'swortzik';
+    public const USER_ONE_DISPLAY_NAME = 'Sonny Wortzik';
 
     public const USER_TWO_UUID = '008cdadc-3ccf-44a0-90dd-4e0b2444c41e';
     public const USER_TWO_PASSWORD = '4e0b2444c41e';
@@ -28,7 +29,7 @@ class User extends AbstractFixture
             'uuid' => self::USER_ONE_UUID,
             'email' => self::USER_ONE_EMAIL,
             'username' => self::USER_ONE_USERNAME,
-            'displayName' => 'Sonny Wortzik',
+            'displayName' => self::USER_ONE_DISPLAY_NAME,
             'plainPassword' => self::USER_ONE_PASSWORD,
         ],
         [
